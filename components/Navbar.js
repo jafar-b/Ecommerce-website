@@ -1,17 +1,18 @@
 import "tailwindcss/tailwind.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "next/image";
 import Link from "next/link";
 const Navbar = () => {
   const [search, setSearch] = useState("");
   const [display, setDisplay] = useState("hidden");
   const [display2, setDisplay2] = useState("hidden");
-  const show="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-  const ontogglehover=()=>{
- display==="hidden"? setDisplay(show):setDisplay("hidden");
+
+const show="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+const ontogglehover=()=>{
+ display==="hidden"? (setDisplay(show),setDisplay2("hidden")):setDisplay("hidden");
   }
   const ontogglehover2=()=>{
- display2==="hidden"? setDisplay2(show):setDisplay2("hidden");
+ display2==="hidden"? (setDisplay2(show),setDisplay("hidden")):setDisplay2("hidden");
 
   }
   const handleOnClick = () => {
@@ -20,7 +21,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="bg-blue-500 w-full flex justify-center  text-white py-1">
+      <div className="bg-blue-500 w-full flex  justify-center  text-white py-1">
        <a href="#" >
          <img
           src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/flipkart-plus_8d85f4.png"
@@ -58,11 +59,11 @@ const Navbar = () => {
 
         <div class="  relative inline-block text-left">
           <div>
-            <button
+          <button
               type="button"
-              // 
-              className={`mt-2 text-black px-2 h-fit bg-white rounded focus:border-black mx-2`}
-          onFocus={ontogglehover}
+              class="text-black focus:outline-none px-2 mt-2 h-fit mx-2 bg-white rounded focus:border-black"
+           onClick={ontogglehover}
+           onBlur={()=>{setDisplay("hidden")}}
            >
               Your Profile
               <svg
@@ -154,8 +155,9 @@ const Navbar = () => {
           <div>
             <button
               type="button"
-              class="text-black px-2 mt-2 h-fit mx-2 bg-white rounded focus:border-black"
+              class="text-black focus:outline-none px-2 mt-2 h-fit mx-2 bg-white rounded focus:border-black"
            onClick={ontogglehover2}
+           onBlur={()=>{setDisplay2("hidden")}}
            >
               More
               <svg

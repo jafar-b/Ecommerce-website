@@ -11,25 +11,25 @@ const ProductCheckout = () => {
           </div>
 
           <div className="flex w-full my-2 px-1 shadow ">
-            <button className="bg-orange-600  mr-1 p-3 w-1/2 h-full font-bold text-white ">
+            <button  className="bg-orange-600  mr-1 p-3 w-1/2 h-full font-bold text-white ">
               BUY NOW
             </button>
 
-            <button className="bg-yellow-500 p-3 w-1/2 h-full   font-bold text-white">
+            <button className="bg-yellow-500 p-3 w-1/2 h-full  font-bold text-white">
               ADD TO CART
             </button>
           </div>
         </div>
 
         {/* Product title description and price */}
-        <div className="text-xl h-fit w-[60%] ">
-          <div className="font-bold  my-4 h-fit">
+        <div className="text-2xl h-fit w-[60%] ">
+          <div className="font-bold mt-5 mx-4 h-fit">
             POCO X4 PRO 5G(Laser Blue,128 GB) (6GB RAM)
           </div>
-          <div className="text-xs my-3 h-fit text-slate-500">
+          <div className="text-xs  mx-4 h-fit text-slate-500">
             33,028 Ratings & 3,308 Reviews
           </div>
-          <div className="text-2xl my-3 font-bold h-fit">Rs.16,999</div>
+          <div className="text-4xl my-3 font-bold h-fit">₹16,999/-</div>
 
           <div className="text-md ">
             <p className="font-bold text-lg">Available offers</p>
