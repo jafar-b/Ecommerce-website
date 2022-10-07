@@ -11,12 +11,12 @@ const ProductCheckout = () => {
           </div>
 
           <div className="flex w-full my-2 px-1 shadow ">
-            <button  className="bg-orange-600  mr-1 p-3 w-1/2 h-full font-bold text-white ">
+            <button  className="bg-orange-600 hover:bg-orange-700  mr-1 p-3 w-1/2 h-full font-bold text-white ">
               BUY NOW
             </button>
 
-            <button className="bg-yellow-500 p-3 w-1/2 h-full  font-bold text-white">
-              ADD TO CART
+            <button className="bg-yellow-500 hover:bg-yellow-600  p-3 w-1/2 h-full  font-bold text-white">
+              ADD TO CART 
             </button>
           </div>
         </div>
