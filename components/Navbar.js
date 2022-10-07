@@ -30,7 +30,7 @@ const Navbar = () => {
           </a>
         <div className="flex w-[40%] mx-2 bg-[#a3c3e5] py-1 my-2 rounded  ">
           <input
-            placeholder="Search..."
+            placeholder="Search for products,brands and more"
             className=" rounded mx-2 focus:outline-none w-[85%] px-2 text-sm"
             onChange={(e) => {
               setSearch(e.target.value);

@@ -3,7 +3,7 @@ import React from "react";
 const GeneralNotice = () => {
   return (
     <>
-      <div class="col gu12 _3MmGvF text-xs bg-slate-200 text-black  m-1">
+      <div class="col gu12 _3MmGvF text-xs bg-slate-200 text-black  m-1 p-1">
         <div class="LfkXVL">
           <span>Top Stories</span>:
           <a class="_2XoPFN" href="/brands">
