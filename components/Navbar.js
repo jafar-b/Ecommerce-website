@@ -21,7 +21,7 @@ const ontogglehover=()=>{
 
   return (
     <>
-      <div className="bg-blue-500 w-full flex  justify-center  text-white py-1">
+      <div className="bg-blue-500 w-full flex  justify-evenly text-white py-1">
        <a href="#" >
          <img
           src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/flipkart-plus_8d85f4.png"
@@ -45,15 +45,15 @@ const ontogglehover=()=>{
             width={25}
           /> 
         </div>
-        <a href="#" className="font-bold mx-2 mt-2 h-fit">
-          Become a Seller
-        </a>
+       
 
         <div className="flex ">
-          <a href="#" className="flex mx-2 font-bold mt-2">
-            <img src="cart.png" width={20} height={10}
+          <a href="/Cart" className="flex mx-2 font-bold mt-2">
+            <img src="cart.png" width={30} height={10}
             className="mx-1 mb-3" />
-            Cart
+            <p className="mt-2">
+              Cart
+              </p>
           </a>
         </div>
 

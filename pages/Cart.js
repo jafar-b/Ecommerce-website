@@ -5,246 +5,180 @@ const Cart = () => {
 
 
   <>
-  <div className="App">
-     <header class="section-header">
-        <section class="header-main border-bottom">
-            <div class="container">
-         <div class="row align-items-center">
-            <div class="col-lg-2 col-4">
-            
-            </div>
-            
-            
-            <div class="col-lg-4 col-sm-6 col-12">
-                <div class="widgets-wrap float-md-right">
-                    <div class="widget-header  mr-3">
-                        <a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></a>
-                        <span class="badge badge-pill badge-danger notify">0</span>
+  <section class="h-100 h-custom bg-[#d2c9ff]" >
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12">
+        <div class="card card-registration card-registration-2">
+          <div class="card-body p-0">
+            <div class="row g-0">
+              <div class="col-lg-8">
+                <div class="p-5">
+                  <div class="d-flex justify-content-between align-items-center mb-5">
+                    <h1 class="fw-bold mb-0 text-3xl text-black">Shopping Cart</h1>
+                    <h6 class="mb-0 text-muted">3 items</h6>
+                  </div>
+                  <hr class="my-4"/>
+
+                  <div class="row mb-4 d-flex justify-content-between align-items-center">
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <img
+                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp"
+                        class="img-fluid rounded-3" alt="Cotton T-shirt"/>
                     </div>
-                    <div class="widget-header icontext">
-                        <a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>
-                        <div class="text">
-                            <span class="text-muted">Welcome!</span>
-                            <div> 
-                                <a href="#">Sign in</a> |   
-                                <a href="#"> Register</a>
-                            </div>
-                        </div>
+                    <div class="col-md-3 col-lg-3 col-xl-3">
+                      <h6 class="text-muted">Shirt</h6>
+                      <h6 class="text-black mb-0">Cotton T-shirt</h6>
                     </div>
-        
-                </div> 
+                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                      <button class="btn btn-link px-2"
+                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                        <i class="fas fa-minus"></i>
+                      </button>
+
+                      <input id="form1" min="0" name="quantity" value="1" type="number"
+                        class="form-control form-control-sm" />
+
+                      <button class="btn btn-link px-2" 
+                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                      <h6 class="mb-0">€ 44.00</h6>
+                    </div>
+                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                      <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                    </div>
+                  </div>
+
+                  <hr class="my-4"/>
+
+                  <div class="row mb-4 d-flex justify-content-between align-items-center">
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <img
+                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img6.webp"
+                        class="img-fluid rounded-3" alt="Cotton T-shirt"/>
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-xl-3">
+                      <h6 class="text-muted">Shirt</h6>
+                      <h6 class="text-black mb-0">Cotton T-shirt</h6>
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                      <button class="btn btn-link px-2"
+                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                        <i class="fas fa-minus"></i>
+                      </button>
+
+                      <input id="form1" min="0" name="quantity" value="1" type="number"
+                        class="form-control form-control-sm" />
+
+                      <button class="btn btn-link px-2"
+                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                      <h6 class="mb-0">€ 44.00</h6>
+                    </div>
+                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                      <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                    </div>
+                  </div>
+
+                  <hr class="my-4"/>
+
+                  <div class="row mb-4 d-flex justify-content-between align-items-center">
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <img
+                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img7.webp"
+                        class="img-fluid rounded-3" alt="Cotton T-shirt"/>
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-xl-3">
+                      <h6 class="text-muted">Shirt</h6>
+                      <h6 class="text-black mb-0">Cotton T-shirt</h6>
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                      <button class="btn btn-link px-2"
+                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                        <i class="fas fa-minus"></i>
+                      </button>
+
+                      <input id="form1" min="0" name="quantity" value="1" type="number"
+                        class="form-control form-control-sm" />
+
+                      <button class="btn btn-link px-2"
+                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                      <h6 class="mb-0">€ 44.00</h6>
+                    </div>
+                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                      <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                    </div>
+                  </div>
+
+                  <hr class="my-4"/>
+
+                  <div class="pt-5">
+                    <h6 class="mb-0"><a href="/" class="text-body"><i
+                          class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 bg-grey">
+                <div class="p-5">
+                  <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                  <hr class="my-4"/>
+
+                  <div class="d-flex justify-content-between mb-4">
+                    <h5 class="text-uppercase">items 3</h5>
+                    <h5>€ 132.00</h5>
+                  </div>
+
+                  <h5 class="text-uppercase mb-3">Shipping</h5>
+
+                  <div class="mb-4 pb-2">
+                    <select class="select">
+                      <option value="1">Standard-Delivery- €5.00</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                      <option value="4">Four</option>
+                    </select>
+                  </div>
+
+                  <h5 class="text-uppercase mb-3">Give code</h5>
+
+                  <div class="mb-5">
+                    <div class="form-outline">
+                      <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
+                      <label class="form-label" for="form3Examplea2">Enter your code</label>
+                    </div>
+                  </div>
+                  <hr class="my-4"/>
+                  <div class="d-flex justify-content-between mb-5">
+                    <h5 class="text-uppercase">Total price</h5>
+                    <h5>€ 137.00</h5>
+                  </div>
+
+                  <button type="button" class="btn btn-dark btn-block btn-lg"
+                    data-mdb-ripple-color="dark">Register</button>
+
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-            </div> 
-        </section> 
-        </header> 
-        
-        
-        
-        
-        <section class="section-pagetop bg">
-        <div class="container">
-            <h2 class="title-page">Shopping cart</h2>
-        </div> 
-        </section>
-        
-        <section class="section-content padding-y">
-        <div class="container">
-        
-        <div class="row">
-            <main class="col-md-9">
-        <div class="card">
-        
-        <table class="table table-borderless table-shopping-cart">
-        <thead class="text-muted">
-        <tr class="small text-uppercase">
-        <th scope="col">Product</th>
-        <th scope="col" width="120">Quantity</th>
-        <th scope="col" width="120">Price</th>
-        <th scope="col" class="text-right" width="200"> </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>
-                <figure class="itemside">
-                    <div class="aside"><img src="assets/images/items/1.jpg" class="img-sm" /></div>
-                    <figcaption class="info">
-                        <a href="#" class="title text-dark">Some name of item goes here nice</a>
-                        <p class="text-muted small">Size: XL, Color: blue, <br /> Brand: Gucci</p>
-                    </figcaption>
-                </figure>
-            </td>
-            <td> 
-                <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>	
-                    <option>3</option>	
-                    <option>4</option>	
-                </select> 
-            </td>
-            <td> 
-                <div class="price-wrap"> 
-                    <var class="price">$1156.00</var> 
-                    <small class="text-muted"> $315.20 each </small> 
-                </div> 
-            </td>
-            <td class="text-right"> 
-            <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light mr-2" data-toggle="tooltip"> <i class="fa fa-heart"></i></a> 
-            <a href="" class="btn btn-light"> Remove</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <figure class="itemside">
-                    <div class="aside"><img src="assets/images/items/2.jpg" class="img-sm" /></div>
-                    <figcaption class="info">
-                        <a href="#" class="title text-dark">Product name  goes here nice</a>
-                        <p class="text-muted small">Size: XL, Color: blue, <br /> Brand: Gucci</p>
-                    </figcaption>
-                </figure>
-            </td>
-            <td> 
-                <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>	
-                    <option>3</option>	
-                    <option>4</option>	
-                </select> 
-            </td>
-            <td> 
-                <div class="price-wrap"> 
-                    <var class="price">$149.97</var> 
-                    <small  class="text-muted"> $75.00 each </small>  
-                </div> 
-            </td>
-            <td class="text-right"> 
-            <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light mr-2" data-toggle="tooltip"> <i class="fa fa-heart"></i></a> 
-            <a href="" class="btn btn-light btn-round"> Remove</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <figure class="itemside">
-                    <div class="aside"><img src="assets/images/items/3.jpg" class="img-sm" /></div>
-                    <figcaption class="info">
-                        <a href="#" class="title text-dark">Another name of some product goes just here</a>
-                        <p class="small text-muted">Size: XL, Color: blue,  Brand: Tissot</p>
-                    </figcaption>
-                </figure>
-            </td>
-            <td> 
-                <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>	
-                    <option>3</option>	
-                </select> 
-            </td>
-            <td> 
-                <div class="price-wrap"> 
-                    <var class="price">$98.00</var> 
-                    <small class="text-muted"> $578.00 each</small> 
-                </div> 
-            </td>
-            <td class="text-right"> 
-                <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light mr-2" data-toggle="tooltip"> <i class="fa fa-heart"></i></a> 
-                <a href="" class="btn btn-light btn-round"> Remove</a>
-            </td>
-        </tr>
-        </tbody>
-        </table>
-        
-        <div class="card-body border-top">
-            <a href="#" class="btn btn-primary float-md-right"> Make Purchase <i class="fa fa-chevron-right"></i> </a>
-            <a href="#" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Continue shopping </a>
-        </div>	
-        </div> 
-        
-        <div class="alert alert-success mt-3">
-            <p class="icontext"><i class="icon text-success fa fa-truck"></i> Free Delivery within 1-2 weeks</p>
-        </div>
-        
-            </main>
-            <aside class="col-md-3">
-                <div class="card mb-3">
-                    <div class="card-body">
-                    <form>
-                        <div class="form-group">
-                            <label>Have coupon?</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="" placeholder="Coupon code" />
-                                <span class="input-group-append"> 
-                                    <button class="btn btn-primary">Apply</button>
-                                </span>
-                            </div>
-                        </div>
-                    </form>
-                    </div> 
-                </div>  
-                <div class="card">
-                    <div class="card-body">
-                            <dl class="dlist-align">
-                            <dt>Total price:</dt>
-                            <dd class="text-right">USD 568</dd>
-                            </dl>
-                            <dl class="dlist-align">
-                            <dt>Discount:</dt>
-                            <dd class="text-right">USD 658</dd>
-                            </dl>
-                            <dl class="dlist-align">
-                            <dt>Total:</dt>
-                            <dd class="text-right  h5"><strong>$1,650</strong></dd>
-                            </dl>
-                            <hr />
-                            <p class="text-center mb-3">
-                                <img src="assets/images/misc/payments.png" height="26" />
-                            </p>
-                            
-                    </div> 
-                </div>  
-            </aside> 
-        </div>
-        
-        </div> 
-        </section>
-       
-        <section class="section-name bg padding-y">
-        <div class="container">
-        <h6>Payment and refund policy</h6>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        
-        </div>
-        </section>
-      
-        <footer class="section-footer border-top padding-y">
-            <div class="container">
-                <p class="float-md-right"> 
-                    &copy; Copyright 2020 All rights reserved
-                </p>
-                <p>
-                    <a href="#">Terms and conditions</a>
-                </p>
-            </div>
-        </footer>
-       
-     
+      </div>
     </div>
-  
+  </div>
+</section>
   
   </>
   
     )
 }
 
-export default Cart
+export default Cart;
