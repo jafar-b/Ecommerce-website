@@ -12,25 +12,23 @@ const Footer = () => {
               <Link href="/ContactUs">Contact Us</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <Link href="#">About Us</Link>
+              <Link href="/AboutUs">About Us</Link>
+            </p>
+            
+            <p className="text-white block text-xs  m-1">
+              <Link href="Stories">Flipkart Stories</Link>
+            </p>
+            <p className="text-white block text-xs  m-1"> 
+              <Link href="/Press">Press</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <Link href="#">Careers</Link>
+              <Link href="/Wholesale">Flipkart Wholesale</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <Link href="#">Flipkart Stories</Link>
-            </p>
-            <p className="text-white block text-xs  m-1">
-              <Link href="#">Press</Link>
-            </p>
-            <p className="text-white block text-xs  m-1">
-              <Link href="#">Flipkart Wholesale</Link>
-            </p>
-            <p className="text-white block text-xs  m-1">
-              <Link href="#">Corporate Information</Link>
+              <Link href="/Corporate">Corporate Information</Link>
             </p>
           </div>
-        </div>
+        </div>  
 
         <div className=" p-2 flex justify text-white w-full">
           <div className="text-start m-4">
