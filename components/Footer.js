@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -8,25 +9,25 @@ const Footer = () => {
           <div className="text-start m-4">
             <p className="text-gray-300 m-3">ABOUT</p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">Contact Us</a>
+              <Link href="/ContactUs">Contact Us</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">About Us</a>
+              <Link href="#">About Us</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">Careers</a>
+              <Link href="#">Careers</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">Flipkart Stories</a>
+              <Link href="#">Flipkart Stories</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">Press</a>
+              <Link href="#">Press</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">Flipkart Wholesale</a>
+              <Link href="#">Flipkart Wholesale</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">Corporate Information</a>
+              <Link href="#">Corporate Information</Link>
             </p>
           </div>
         </div>
@@ -35,22 +36,22 @@ const Footer = () => {
           <div className="text-start m-4">
             <p className="text-gray-300 m-3">HELP</p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">Payments</a>
+              <Link href="#">Payments</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">Shipping
-</a>
+              <Link href="#">Shipping
+</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">Cancellation & Returns
-</a>
+              <Link href="#">Cancellation & Returns
+</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">FAQ
-</a>
+              <Link href="#">FAQ
+</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">Report Infringement</a>
+              <Link href="#">Report Infringement</Link>
             </p>
           </div>
         </div> 
@@ -59,22 +60,22 @@ const Footer = () => {
           <div className="text-start m-4">
             <p className="text-gray-300 m-3">POLICY</p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">Return Policy</a>
+              <Link href="#">Return Policy</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">Terms Of Use</a>
+              <Link href="#">Terms Of Use</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">Security</a>
+              <Link href="#">Security</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">Privacy</a>
+              <Link href="#">Privacy</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">Sitemap</a>
+              <Link href="#">Sitemap</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">EPR Compliance</a>
+              <Link href="#">EPR Compliance</Link>
             </p>
           </div>
         </div>
@@ -82,13 +83,13 @@ const Footer = () => {
           <div className="text-start m-4">
             <p className="text-gray-300 m-3">SOCIAL</p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">Facebook</a>
+              <Link href="#">Facebook</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">Twitter</a>
+              <Link href="#">Twitter</Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <a href="#">Youtube</a>
+              <Link href="#">Youtube</Link>
             </p>
           </div>
         </div>

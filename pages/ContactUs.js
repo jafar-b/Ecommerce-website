@@ -92,7 +92,7 @@ const ContactUs=()=>{
                 </li>
 
                 <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                    <p>contact@mdbootstrap.com</p>
+                    <p>demowebsite@jafar.com</p>
                 </li>
             </ul>
         </div>
