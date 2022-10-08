@@ -4,7 +4,7 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <div className="flex bg-[#172337] relative">
+      <div className="flex bg-[#172337] relative bottom-0"> 
         <div className=" p-2 flex justify text-white w-full">
           <div className="text-start m-4">
             <p className="text-gray-300 m-3">ABOUT</p>
@@ -13,20 +13,7 @@ const Footer = () => {
             </p>
             <p className="text-white block text-xs  m-1">
               <Link href="/AboutUs">About Us</Link>
-            </p>
-            
-            <p className="text-white block text-xs  m-1">
-              <Link href="Stories">Flipkart Stories</Link>
-            </p>
-            <p className="text-white block text-xs  m-1"> 
-              <Link href="/Press">Press</Link>
-            </p>
-            <p className="text-white block text-xs  m-1">
-              <Link href="/Wholesale">Flipkart Wholesale</Link>
-            </p>
-            <p className="text-white block text-xs  m-1">
-              <Link href="/Corporate">Corporate Information</Link>
-            </p>
+            </p>   
           </div>
         </div>  
 
@@ -45,12 +32,10 @@ const Footer = () => {
 </Link>
             </p>
             <p className="text-white block text-xs  m-1">
-              <Link href="#">FAQ
+              <Link href="/Faq">FAQ
 </Link>
             </p>
-            <p className="text-white block text-xs  m-1">
-              <Link href="#">Report Infringement</Link>
-            </p>
+         
           </div>
         </div> 
 

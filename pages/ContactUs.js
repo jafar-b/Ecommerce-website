@@ -4,10 +4,10 @@ const ContactUs=()=>{
 
     return(
 <>
-<div className="my-3 mx-24 ">
+<div className="my-3 mx-24 bg-white relative z-20  ">
 
 {/* <!--Section: Contact v.2--> */}
-<section class="mb-4 w-full"> 
+<section class="w-full h-fit "> 
 
     {/* <!--Section heading--> */}
     <h2 class="h1-responsive font-weight-bold text-center text-4xl font-bold my-4">Contact us</h2>
