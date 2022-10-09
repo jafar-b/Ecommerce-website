@@ -7,14 +7,18 @@ const Navbar = () => {
   const [display, setDisplay] = useState("hidden");
   const [display2, setDisplay2] = useState("hidden");
 
-const show="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-const ontogglehover=()=>{
- display==="hidden"? (setDisplay(show),setDisplay2("hidden")):setDisplay("hidden");
-  }
-  const ontogglehover2=()=>{
- display2==="hidden"? (setDisplay2(show),setDisplay("hidden")):setDisplay2("hidden");
-
-  }
+  const show =
+    "absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none";
+  const ontogglehover = () => {
+    display === "hidden"
+      ? (setDisplay(show), setDisplay2("hidden"))
+      : setDisplay("hidden");
+  };
+  const ontogglehover2 = () => {
+    display2 === "hidden"
+      ? (setDisplay2(show), setDisplay("hidden"))
+      : setDisplay2("hidden");
+  };
   const handleOnClick = () => {
     console.log(search);
   };
@@ -22,13 +26,13 @@ const ontogglehover=()=>{
   return (
     <>
       <div className="bg-blue-500 w-full flex  justify-evenly text-white py-1">
-       <a href="#" >
-         <img
-          src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/flipkart-plus_8d85f4.png"
-          width={60}     
-          className={"mx-2 my-4"}  
+        <a href="#">
+          <img
+            src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/flipkart-plus_8d85f4.png"
+            width={60}
+            className={"mx-2 my-4"}
           />
-          </a>
+        </a>
         <div className="flex w-[40%] mx-2 bg-[#a3c3e5] py-1 my-2 rounded  ">
           <input
             placeholder="Search for products,brands and more"
@@ -43,32 +47,45 @@ const ontogglehover=()=>{
             className="hover:cursor-pointer hover:bg-slate-100 p-1 rounded mx-2 "
             onClick={handleOnClick}
             width={25}
-          /> 
+          />
         </div>
-       
 
         <div className="flex ">
           <Link href="/Cart" className="flex mx-2 text-center font-bold mt-2">
-            
             <a className="mt-2 font-bold ">
               Cart
-
-              <img src="cart.png" width={30} height={10}
-            className="mx-1" />
+              <img src="cart.png" width={30} height={10} className="mx-1" />
             </a>
-    
+          </Link>
+        </div>
 
-                      </Link>
+
+        <div className="flex ">
+          <Link href="/Login" className="flex mx-2 text-center font-bold mt-2">
+            <a className="mt-2 font-bold ">
+              Login
+            </a>
+          </Link>
+        </div>
+
+        <div className="flex ">
+          <Link href="/Signup" className="flex mx-2 text-center font-bold mt-2">
+            <a className="mt-2 font-bold ">
+Signup
+            </a>
+          </Link>
         </div>
 
         <div class="  relative inline-block text-left">
           <div>
-          <button
+            <button
               type="button"
               class="text-black focus:outline-none px-2 mt-2 h-fit mx-2 bg-white rounded focus:border-black"
-           onClick={ontogglehover}
-           onBlur={()=>{setDisplay("hidden")}}
-           >
+              onClick={ontogglehover}
+              onBlur={() => {
+                setDisplay("hidden");
+              }}
+            >
               Your Profile
               <svg
                 class="mr-1  ml-2 h-3 w-fit"
@@ -86,7 +103,6 @@ const ontogglehover=()=>{
             </button>
           </div>
 
-
           <div class={display}>
             <div class="py-1" role="none">
               <a
@@ -97,7 +113,6 @@ const ontogglehover=()=>{
                 id="menu-item-0"
               >
                 orders
-            
               </a>
               <a
                 href="#"
@@ -105,9 +120,8 @@ const ontogglehover=()=>{
                 role="menuitem"
                 tabindex="-1"
                 id="menu-item-1"
-                >
+              >
                 wishlist
-                
               </a>
               <a
                 href="#"
@@ -115,9 +129,8 @@ const ontogglehover=()=>{
                 role="menuitem"
                 tabindex="-1"
                 id="menu-item-1"
-                >
-               giftcard
-                
+              >
+                giftcard
               </a>
               <a
                 href="#"
@@ -125,9 +138,8 @@ const ontogglehover=()=>{
                 role="menuitem"
                 tabindex="-1"
                 id="menu-item-1"
-                >
-                 notifications
-                
+              >
+                notifications
               </a>
               <a
                 href="#"
@@ -135,9 +147,8 @@ const ontogglehover=()=>{
                 role="menuitem"
                 tabindex="-1"
                 id="menu-item-2"
-                >
-                
-                coupons  
+              >
+                coupons
               </a>
               <form method="POST" action="#" role="none">
                 <button
@@ -146,23 +157,23 @@ const ontogglehover=()=>{
                   role="menuitem"
                   tabindex="-1"
                   id="menu-item-3"
-                  >              
+                >
                   Sign out
-       
                 </button>
               </form>
             </div>
           </div>
-          
         </div>
         <div class="  relative inline-block text-left">
           <div>
             <button
               type="button"
               class="text-black focus:outline-none px-2 mt-2 h-fit mx-2 bg-white rounded focus:border-black"
-           onClick={ontogglehover2}
-           onBlur={()=>{setDisplay2("hidden")}}
-           >
+              onClick={ontogglehover2}
+              onBlur={() => {
+                setDisplay2("hidden");
+              }}
+            >
               More
               <svg
                 class="mr-1  ml-2 h-3 w-fit"
@@ -197,7 +208,6 @@ const ontogglehover=()=>{
                 id="menu-item-0"
               >
                 Notification Preference
-               
               </a>
               <a
                 href="#"
@@ -224,7 +234,7 @@ const ontogglehover=()=>{
                   role="menuitem"
                   tabindex="-1"
                   id="menu-item-3"
-                  >
+                >
                   Download App
                 </button>
               </form>
