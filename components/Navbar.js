@@ -48,13 +48,17 @@ const ontogglehover=()=>{
        
 
         <div className="flex ">
-          <a href="/Cart" className="flex mx-2 font-bold mt-2">
-            <img src="cart.png" width={30} height={10}
-            className="mx-1 mb-3" />
-            <p className="mt-2">
+          <Link href="/Cart" className="flex mx-2 text-center font-bold mt-2">
+            
+            <a className="mt-2 font-bold ">
               Cart
-              </p>
-          </a>
+
+              <img src="cart.png" width={30} height={10}
+            className="mx-1" />
+            </a>
+    
+
+                      </Link>
         </div>
 
         <div class="  relative inline-block text-left">
