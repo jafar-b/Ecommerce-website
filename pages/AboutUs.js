@@ -3,7 +3,7 @@ import React from 'react'
 const AboutUs = () => {
   return (
 <>
-<div className='mb-44 mx-16 mt-8  h-fit '>
+<div className=' mx-16 pt-16  w-full h-[64vh] '>
 <div className='mx-3 my-6 text-4xl font-bold'>
 ABOUT 
 </div>
