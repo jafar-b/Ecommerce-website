@@ -45,7 +45,7 @@ const ReturnPolicy = () => {
                 <p>Lifestyle: Watch, Winter Wear (Blazer, Sweatshirt, Scarf, Shawl, Jacket, Coat, Sweater, Thermal, Kid’s Thermal, Track Pant, Shrugs), T-Shirt, Footwear, Sari, Short, Dress, Kid’s (Capri, Shorts &amp; Tops), Men’s (Ethnic Wear, Shirt, Formals, Jeans, Clothing Accessory), Women’s (Ethnic Wear, Fabric, Blouse, Jean, Skirt, Trousers, Bra), Bags, Raincoat, Sunglass, Belt, Frame, Backpack, Suitcase, Luggage, etc...</p>
                 <p>Lifestyle: Jewellery, Footwear Accessories, Travel Accessories, Watch Accessories, etc..</p>
             </td>
-            <td valign="middle" class="border border-black">
+            <td valign="middle" class="border border-black" >
                 <p>10 days</p>
                 <p>Refund, Replacement or Exchange</p>
             </td>

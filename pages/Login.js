@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 const Login = () => {
   const [Email, setEmail] = useState(null);
   const [Pass, setPass] = useState(null);
-  const [Entry, setEntry] = useState([]);
-  const emailpass = {email:Email,pass:Pass};
 
   const handleOnFormSubmit = (e) => {
     e.preventDefault();
@@ -14,13 +12,14 @@ const Login = () => {
     } else if (!Pass) {
       alert("please enter password,It can't be empty!!");
     }
+    
 fetchbackend();
 
 
   };
 
   const fetchbackend=() => {
-    fetch("http://localhost:5000/login")
+    fetch("http://localhost:3000/api/Login")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
