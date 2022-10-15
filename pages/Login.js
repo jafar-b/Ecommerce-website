@@ -19,17 +19,17 @@ fetchbackend();
   };
 
   const fetchbackend=() => {
-    fetch("http://localhost:3000/api/Login")
+    fetch("http://localhost:5000/api/Login")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        console.log({data});
      
-if(data.email==Email && data.pass==Pass){
-  alert("LOGGED IN SUCCESSFULLY")
-}
-else{
-  alert("LOGIN FAILED,SORRY")
-}
+// if(data.email==Email && data.pass==Pass){
+//   alert("LOGGED IN SUCCESSFULLY")
+// }
+// else{
+//   alert("LOGIN FAILED,SORRY")
+// }
 
       });
 

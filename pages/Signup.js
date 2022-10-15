@@ -1,18 +1,56 @@
 import React from "react";
 import { useState } from "react";
 const Signup = () => {
-  const [name, setName] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [pass, setPass] = useState(null);
-  const [pass2, setPass2] = useState(null);
-  const handleSubmit = (e) => {
-e.preventDefault();
-
-    console.log(name,email,pass,pass2)
-  
+  const [userinput, setUserinput] = useState({
+    name: "",
+    email: "",
+    pass: "",
+    pass2: "",
+  });
+  let name, value;
+  const handleinputs = (e) => {
+    name = e.target.name;
+    value = e.target.value;
+    setUserinput({ ...userinput, [name]: value });
   };
+  const postData =async () => {
+
+    // console.log(userinput)
 
 
+
+    const { name, email, pass, pass2 } = userinput;
+console.log( JSON.stringify(
+
+  {name,
+  email,
+  pass,
+  pass2}
+
+));
+
+    const res = await fetch("http://localhost:5000/api/Signup", {
+      method: "POST",
+      Accept: "*/*",
+      headers: { "Content-Type":"application-json"},
+      body: JSON.stringify({
+
+        name:name,
+        email:email,
+        pass:pass,
+        pass2:pass2,
+      }
+      ),
+    });
+
+    const data = await res.json();
+
+    if (!data) {
+      console.log("kay tarin jhol ashe bawa data not posted");
+    } else {
+      console.log("Registration successfull");
+    }
+  };
 
   return (
     <>
@@ -29,15 +67,17 @@ e.preventDefault();
                           Sign up
                         </p>
 
-                        <form class="mx-1 mx-md-4 " onSubmit={handleSubmit}>
+                        <form class="mx-1 mx-md-4 " onSubmit={handleinputs}>
                           <div class="d-flex flex-row align-items-center mb-4">
                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
                               <input
+                                name="name"
                                 type="text"
                                 id="form3Example1c"
                                 class="form-control"
-                                onChange={(e) => setName(e.target.value)}
+                                value={userinput.name}
+                                onChange={handleinputs}
                               />
                               <label class="form-label" for="form3Example1c">
                                 Your Name
@@ -49,10 +89,12 @@ e.preventDefault();
                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
                               <input
+                                name="email"
                                 type="email"
                                 id="form3Example3c"
                                 class="form-control"
-                                onChange={(e) => setEmail(e.target.value)}
+                                value={userinput.email}
+                                onChange={handleinputs}
                               />
                               <label class="form-label" for="form3Example3c">
                                 Your Email
@@ -64,10 +106,12 @@ e.preventDefault();
                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
                               <input
+                                name="pass"
                                 type="password"
                                 id="form3Example4c"
                                 class="form-control"
-                                onChange={(e) => setPass(e.target.value)}
+                                value={userinput.pass}
+                                onChange={handleinputs}
                               />
                               <label class="form-label" for="form3Example4c">
                                 Password
@@ -79,15 +123,14 @@ e.preventDefault();
                             <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
                               <input
+                                name="pass2"
                                 type="password"
                                 id="form3Example4cd"
                                 class="form-control"
-                                onChange={(e) => setPass2(e.target.value)}
+                                value={userinput.pass2}
+                                onChange={handleinputs}
                               />
-                              <label
-                                class="form-label"
-                                for="form3Example4cd"
-                              >
+                              <label class="form-label" for="form3Example4cd">
                                 Repeat your password
                               </label>
                             </div>
@@ -110,7 +153,7 @@ e.preventDefault();
                             <button
                               type="button"
                               class="btn btn-primary text-black btn-lg"
-                              onClick={handleSubmit}
+                              onClick={postData}
                             >
                               Register
                             </button>
