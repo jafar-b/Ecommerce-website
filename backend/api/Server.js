@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import express from "express";
+import express, { urlencoded } from "express";
 import cors from "cors";
 const app = express();
 const port = 5000;
@@ -7,45 +7,46 @@ import prodmodel from "./Models/ProductSchema.js";
 import usermodel from "./Models/UserSchema.js";
 app.use(cors());
 app.use(express.json());
-
+app.use(express.urlencoded({ extended: true }));
 const url =
   "mongodb+srv://root:root@cluster0.q9yicuo.mongodb.net/ecom?retryWrites=true&w=majority";
 app.get("/", (req, res) => {
   res.send("Hello from server");
 });
 
-app.get("/api/Signup", (req, res) => {
+app.post("/Signup", async (req, res) => {
   const { name, email, pass, pass2 } = req.body;
 
-  if (!name || !email || !pass || !pass2) {
-    return res.status(400).json({ error: "please enter fields properly." });
+  if (!name) {
+    return res.status(400).json({ error: "no name" });
   }
-  usermodel
-    .findOne({ email: email })
-    .then((userExist) => {
-      if (userExist) {
-        return res.status(422).json({ message: "user already exists" });
-      }
-      const user = new usermodel({ name, email, pass, pass2 });
 
-      user
-        .save()
-        .then(() => {
-          return res
-            .status(200)
-            .json({ success: " signup data saved successfully" });
-        })
-        .catch((err) => console.log("error data not saved"));
-    })
-    .catch((err) => {
-      console.log("error hai bhai pure code me");
-    });
+  if (!email) {
+    return res.status(400).json({ error: "no email" });
+  }
+
+  if (!pass) {
+    return res.status(400).json({ error: "no password" });
+  }
+
+  if (!pass2) {
+    return res.status(400).json({ error: "no confirm pass" });
+  }
+
+  const user = new usermodel({
+    name: name,
+    email: email,
+    pass: pass,
+    pass2: pass2,
+  });
+
+  user.save();
 });
 
 app.get("/api/Login", (req, res) => {
   const { email, pass } = req.body;
   if (!email || !pass) {
-    res.status(500).json({ error: "please input eemail and password" });
+    res.status(500).json({ error: "please input email and password" });
   }
 
   usermodel
@@ -64,5 +65,10 @@ app.get("/api/Login", (req, res) => {
 
 app.listen(port, () => {
   console.log("server listening at port ", port);
-  mongoose.connect(url).then(() => console.log("connection successfull"));
+  mongoose
+    .connect(url)
+    .then(() => console.log("connection successfull"))
+    .catch((e) => {
+      console.log("connection failed  ", e);
+    });
 });

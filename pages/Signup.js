@@ -8,48 +8,42 @@ const Signup = () => {
     pass2: "",
   });
   let name, value;
+
+
   const handleinputs = (e) => {
     name = e.target.name;
     value = e.target.value;
     setUserinput({ ...userinput, [name]: value });
   };
-  const postData =async () => {
 
+  const postData = async () => {
     // console.log(userinput)
-
-
+    let bodyContent = `name=${userinput.name}&email=${userinput.email}&pass=${userinput.pass}&pass2=${userinput.pass2}`;
 
     const { name, email, pass, pass2 } = userinput;
-console.log( JSON.stringify(
+    console.log("frontend userinput: ",userinput);
+    // console.log(JSON.stringify({ name, email, pass, pass2 }));
 
-  {name,
-  email,
-  pass,
-  pass2}
-
-));
-
-    const res = await fetch("http://localhost:5000/api/Signup", {
+    const res = await fetch("http://localhost:5000/Signup", {
       method: "POST",
       Accept: "*/*",
-      headers: { "Content-Type":"application-json"},
-      body: JSON.stringify({
-
-        name:name,
-        email:email,
-        pass:pass,
-        pass2:pass2,
-      }
-      ),
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body:bodyContent
     });
+    if(res.status===200){
 
-    const data = await res.json();
+      const data = await res.json();
+      console.log("passing data from frontend: ",data)
+      if (!data) {
+        console.log("data not posted");
+      } else {
+       console.log("data posted successfully to backend",);
 
-    if (!data) {
-      console.log("kay tarin jhol ashe bawa data not posted");
-    } else {
-      console.log("Registration successfull");
+      }
     }
+else{
+  alert("No data given")
+}
   };
 
   return (
@@ -67,7 +61,7 @@ console.log( JSON.stringify(
                           Sign up
                         </p>
 
-                        <form class="mx-1 mx-md-4 " onSubmit={handleinputs}>
+                        <form class="mx-1 mx-md-4 " method="post" onSubmit={handleinputs}>
                           <div class="d-flex flex-row align-items-center mb-4">
                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
