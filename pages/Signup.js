@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import { useRouter } from "next/router";
 const Signup = () => {
+  const router=useRouter();
   const [userinput, setUserinput] = useState({
     name: "",
     email: "",
@@ -17,32 +19,29 @@ const Signup = () => {
   };
 
   const postData = async () => {
-    // console.log(userinput)
-    let bodyContent = `name=${userinput.name}&email=${userinput.email}&pass=${userinput.pass}&pass2=${userinput.pass2}`;
 
-    const { name, email, pass, pass2 } = userinput;
-    console.log("frontend userinput: ",userinput);
-    // console.log(JSON.stringify({ name, email, pass, pass2 }));
+    let bodyContent = `name=${userinput.name}&email=${userinput.email}&pass=${userinput.pass}&pass2=${userinput.pass2}`;
 
     const res = await fetch("http://localhost:5000/Signup", {
       method: "POST",
       Accept: "*/*",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      headers: { "Content-Type": "application/x-www-form-urlencoded"},
       body:bodyContent
     });
     if(res.status===200){
 
       const data = await res.json();
-      console.log("passing data from frontend: ",data)
-      if (!data) {
-        console.log("data not posted");
-      } else {
-       console.log("data posted successfully to backend",);
+      console.log("passing data from frontend: ",data);
+      alert("Registration successfull Pleae Login.");
+      router.replace("/Login");
+      
 
-      }
     }
-else{
-  alert("No data given")
+else if(res.status===500){
+  alert("data not saved");
+}
+else if(res.status===400){
+  alert("user exists please login.");
 }
   };
 

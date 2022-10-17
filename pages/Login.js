@@ -1,10 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useRouter } from 'next/router';
+// import usermodel from "../backend/api/Models/UserSchema";
 
 const Login = () => {
-  const [Email, setEmail] = useState(null);
-  const [Pass, setPass] = useState(null);
-
+  const router = useRouter();
+  const [Email, setEmail] = useState("");
+  const [Pass, setPass] = useState("");
+  const userinput = { Email, Pass };
   const handleOnFormSubmit = (e) => {
     e.preventDefault();
     if (!Email) {
@@ -12,28 +15,26 @@ const Login = () => {
     } else if (!Pass) {
       alert("please enter password,It can't be empty!!");
     }
-    
-fetchbackend();
 
-
+    fetchbackend();
   };
 
-  const fetchbackend=() => {
-    fetch("http://localhost:5000/api/Login")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log({data});
-     
-// if(data.email==Email && data.pass==Pass){
-//   alert("LOGGED IN SUCCESSFULLY")
-// }
-// else{
-//   alert("LOGIN FAILED,SORRY")
-// }
+  const fetchbackend = () => {
+    console.log("user input frontend: ", userinput);
 
-      });
-
-
+    const res = fetch("http://localhost:5000/Login", {
+      method: "POST",
+      body: `email=${Email}&pass=${Pass}`,
+      Accept: "*/*",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    }).then((res) => {
+      if (res.status === 200) {
+        alert("Login successfull");
+      } else {
+        alert("User not found please signup first");
+        router.replace("/Signup");
+      }
+    });
   };
 
   
@@ -44,7 +45,7 @@ fetchbackend();
         <div className="text-3xl w-full font-bold mb-4 ">LOGIN</div>
         <form
           className=" px-56 flex flex-col items-center justify-center"
-          
+          method="post"
         >
           <div class="form-outline mb-4 ">
             <input

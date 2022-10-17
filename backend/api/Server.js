@@ -16,21 +16,17 @@ app.get("/", (req, res) => {
 
 app.post("/Signup", async (req, res) => {
   const { name, email, pass, pass2 } = req.body;
-
   if (!name) {
-    return res.status(400).json({ error: "no name" });
+    return res.status(422).json({ error: "no name" });
   }
-
   if (!email) {
-    return res.status(400).json({ error: "no email" });
+    return res.status(422).json({ error: "no email" });
   }
-
   if (!pass) {
-    return res.status(400).json({ error: "no password" });
+    return res.status(422).json({ error: "no password" });
   }
-
   if (!pass2) {
-    return res.status(400).json({ error: "no confirm pass" });
+    return res.status(422).json({ error: "no confirm pass" });
   }
 
   const user = new usermodel({
@@ -40,13 +36,29 @@ app.post("/Signup", async (req, res) => {
     pass2: pass2,
   });
 
-  user.save();
+  usermodel
+    .findOne({ email: email })
+    .then((userExists) => {
+      if (userExists) {res.status(400).json({ error: "User exists." });}
+      else{
+
+        user
+        .save()
+        .then(() => {
+          res.status(200).json({ Message: "data saved successfully" });
+          console.log("Registration succesfull please login.");
+        }).catch((err) => {
+          res.status(500).json({ err: "data not saved" });
+        });
+      }
+    })
+    .catch((err) => console.log("error in findone"));
 });
 
-app.get("/api/Login", (req, res) => {
+app.post("/Login", (req, res) => {
   const { email, pass } = req.body;
   if (!email || !pass) {
-    res.status(500).json({ error: "please input email and password" });
+    res.status(400).json({ error: "please input email and  password" });
   }
 
   usermodel
@@ -69,6 +81,6 @@ app.listen(port, () => {
     .connect(url)
     .then(() => console.log("connection successfull"))
     .catch((e) => {
-      console.log("connection failed  ", e);
+      console.log("connection failed", e);
     });
 });
