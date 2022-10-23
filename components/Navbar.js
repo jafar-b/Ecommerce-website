@@ -2,11 +2,12 @@ import "tailwindcss/tailwind.css";
 import React, { useEffect, useState } from "react";
 import "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 const Navbar = () => {
   const [search, setSearch] = useState("");
   const [display, setDisplay] = useState("hidden");
   const [display2, setDisplay2] = useState("hidden");
-
+  let router = new useRouter();
   const show =
     "absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none";
   const ontogglehover = () => {
@@ -52,27 +53,19 @@ const Navbar = () => {
 
         <div className="flex ">
           <Link href="/Cart" className="flex mx-2 text-center font-bold mt-2">
-            <a className="mt-2 font-bold ">
-              Cart
-              <img src="cart.png" width={30} height={10} className="mx-1" />
-            </a>
+            <a className="mt-2 font-bold ">Cart</a>
           </Link>
         </div>
 
-
         <div className="flex ">
           <Link href="/Login" className="flex mx-2 text-center font-bold mt-2">
-            <a className="mt-2 font-bold ">
-              Login
-            </a>
+            <a className="mt-2 font-bold ">Login</a>
           </Link>
         </div>
 
         <div className="flex ">
           <Link href="/Signup" className="flex mx-2 text-center font-bold mt-2">
-            <a className="mt-2 font-bold ">
-Signup
-            </a>
+            <a className="mt-2 font-bold ">Signup</a>
           </Link>
         </div>
 
@@ -123,21 +116,23 @@ Signup
               >
                 wishlist
               </a>
-              <a
-                href="#"
-                class="hover:bg-slate-200 text-gray-700 block px-4 py-2 text-sm"
+              <Link
+                href="/User/Editprofile"
+                passHref
+                className="text-black"
                 role="menuitem"
                 tabindex="-1"
-                id="menu-item-1"
+                id="menu-item-2"
+                onClick={(e) => e.preventDefault()}
               >
-                giftcard
-              </a>
+                <a> Edit Profile </a>
+              </Link>
               <a
                 href="#"
                 class="hover:bg-slate-200 text-gray-700 block px-4 py-2 text-sm"
                 role="menuitem"
                 tabindex="-1"
-                id="menu-item-1"
+                id="menu-item-3"
               >
                 notifications
               </a>
@@ -146,7 +141,7 @@ Signup
                 class="hover:bg-slate-200 text-gray-700 block px-4 py-2 text-sm"
                 role="menuitem"
                 tabindex="-1"
-                id="menu-item-2"
+                id="menu-item-4"
               >
                 coupons
               </a>
@@ -156,7 +151,7 @@ Signup
                   class="text-gray-700 block w-full px-4 py-2 text-left text-sm hover:bg-slate-200 rounded"
                   role="menuitem"
                   tabindex="-1"
-                  id="menu-item-3"
+                  id="menu-item-5"
                 >
                   Sign out
                 </button>

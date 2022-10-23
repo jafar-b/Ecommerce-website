@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import{ mongoose } from "mongoose";
 import express, { urlencoded } from "express";
 import cors from "cors";
 const app = express();
@@ -8,6 +8,8 @@ import usermodel from "./Models/UserSchema.js";
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+let database;
 const url =
   "mongodb+srv://root:root@cluster0.q9yicuo.mongodb.net/ecom?retryWrites=true&w=majority";
 app.get("/", (req, res) => {
@@ -34,7 +36,7 @@ app.post("/Signup", async (req, res) => {
     email: email,
     pass: pass,
     pass2: pass2,
-  });
+  }); 
 
   usermodel
     .findOne({ email: email })
@@ -55,6 +57,15 @@ app.post("/Signup", async (req, res) => {
     .catch((err) => console.log("error in findone"));
 });
 
+app.get("/products",(req,res)=>{
+ 
+  
+
+  
+})
+
+
+
 app.post("/Login", (req, res) => {
   const { email, pass } = req.body;
   if (!email || !pass) {
@@ -74,6 +85,15 @@ app.post("/Login", (req, res) => {
       console.log("findOne ME ERROR HAI");
     });
 });
+
+
+app.get("/a",(req,res)=>{
+
+  res.send(req.body);
+
+
+})
+
 
 app.listen(port, () => {
   console.log("server listening at port ", port);

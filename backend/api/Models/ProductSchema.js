@@ -1,14 +1,14 @@
-import mongoose, { Schema } from 'mongoose';
+import {mongoose, Schema } from 'mongoose';
 
 const ProdSchema=new Schema({
     Name:String,
     Price: String,
-    Body: { Location: String },
+    Body: Object,
     Category: String,
-    Company: { Name: String, URL: String },
+    Company: Object,
     Source: String,
     Link: String,
-    Duplicates: { note: String },
+    Duplicates: Object,
     id: String,
     Image:String, 
 });
@@ -16,7 +16,7 @@ const ProdSchema=new Schema({
 
 
 
-const prodmodel = mongoose.model('prod', ProdSchema);
+const prodmodel = mongoose.model('products', ProdSchema);
 
 export const schema = prodmodel.schema;
 export default prodmodel;

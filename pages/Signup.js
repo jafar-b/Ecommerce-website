@@ -47,8 +47,8 @@ else if(res.status===400){
 
   return (
     <>
-      <div className="mb-6">
-        <section class="vh-100 bg-[#eee] ">
+      <div className="  z-10 m-6 relative ">
+        <section class=" bg-[#eee] ">
           <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
               <div class="col-lg-12 col-xl-11">

@@ -7,7 +7,7 @@ const Footer = () => {
 
       <div className="flex bg-[#172337] mb-0 relative pb-0 w-full bottom-0"> 
         <div className=" p-2 flex justify text-white w-full bottom-0">
-          <div className="text-start m-4">
+          <div className="text-start m-4 bottom-0">
             <p className="text-gray-300 m-3">ABOUT</p>
             <p className="text-white block text-xs  m-1">
               <Link href="/ContactUs">Contact Us</Link>
