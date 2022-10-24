@@ -5,35 +5,62 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 const Navbar = () => {
   const [search, setSearch] = useState("");
-  const [display, setDisplay] = useState("hidden");
-  const [display2, setDisplay2] = useState("hidden");
+  const [display, setDisplay] = useState(false);
+  const [display2, setDisplay2] = useState(false);
+
   let router = new useRouter();
+
   const show =
     "absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none";
-  const ontogglehover = () => {
-    display === "hidden"
-      ? (setDisplay(show), setDisplay2("hidden"))
-      : setDisplay("hidden");
+
+  const hidden =
+    "hidden right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none";
+
+  
+
+  // to hide and show dropdown
+  const handleOnDrop = () => {
+    
+    if (display) {
+      setDisplay(false);
+    } else {
+      setDisplay(true);
+      setDisplay2(false)
+    }
+
+
   };
-  const ontogglehover2 = () => {
-    display2 === "hidden"
-      ? (setDisplay2(show), setDisplay("hidden"))
-      : setDisplay2("hidden");
+  // to hide and show dropdown
+  const handleOnDrop2 = () => {
+    // console.log(search);
+    if (display2) {
+      setDisplay2(false);
+    } else {
+      setDisplay2(true);
+      setDisplay(false)
+    }
+   
   };
-  const handleOnClick = () => {
-    console.log(search);
+
+  const handleOnDropClose = () => {
+    setDisplay(false);
+  };
+  const handleOnSearch = () => {
+
+
+
   };
 
   return (
     <>
-      <div className="bg-blue-500 w-full flex  justify-evenly text-white py-1">
-        <a href="#">
+      <div className="bg-blue-500 w-full flex  justify-evenly text-white py-1 ">
+        <Link href="/#">
           <img
             src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/flipkart-plus_8d85f4.png"
             width={60}
             className={"mx-2 my-4"}
           />
-        </a>
+        </Link>
         <div className="flex w-[40%] mx-2 bg-[#a3c3e5] py-1 my-2 rounded  ">
           <input
             placeholder="Search for products,brands and more"
@@ -46,7 +73,7 @@ const Navbar = () => {
             src="search.png"
             height={20}
             className="hover:cursor-pointer hover:bg-slate-100 p-1 rounded mx-2 "
-            onClick={handleOnClick}
+            onClick={handleOnSearch}
             width={25}
           />
         </div>
@@ -69,15 +96,13 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div class="  relative inline-block text-left">
+        <div class="relative inline-block text-left z-20" >
           <div>
             <button
-              type="button"
-              class="text-black focus:outline-none px-2 mt-2 h-fit mx-2 bg-white rounded focus:border-black"
-              onClick={ontogglehover}
-              onBlur={() => {
-                setDisplay("hidden");
-              }}
+              
+              className={`text-black focus:outline-none px-2 mt-2 h-fit mx-2 bg-white rounded focus:border-black  `}
+               onClick={handleOnDrop}
+              
             >
               Your Profile
               <svg
@@ -96,17 +121,21 @@ const Navbar = () => {
             </button>
           </div>
 
-          <div class={display}>
+          <div class={display ? show : hidden} >
             <div class="py-1" role="none">
-              <a
+              <Link
                 href="#"
                 class="hover:bg-slate-200 text-gray-700 block px-4 py-2 text-sm"
-                role="menuitem"
-                tabindex="-1"
-                id="menu-item-0"
               >
-                orders
-              </a>
+                <a
+                                     className="hover:bg-slate-200 text-gray-700 block px-4 py-2 text-sm"
+                  onClick={() => {
+                    setDisplay(false);
+                  }}
+                >
+                  Orders
+                </a>
+              </Link>
               <a
                 href="#"
                 class="hover:bg-slate-200 text-gray-700 block px-4 py-2 text-sm"
@@ -116,17 +145,18 @@ const Navbar = () => {
               >
                 wishlist
               </a>
-              <Link
-                href="/User/Editprofile"
-                passHref
-                className="text-black"
-                role="menuitem"
-                tabindex="-1"
-                id="menu-item-2"
-                onClick={(e) => e.preventDefault()}
-              >
-                <a> Edit Profile </a>
+
+              <Link href="/User/Editprofile" passHref>
+                <a
+                  className="hover:bg-slate-200 text-gray-700 block px-4 py-2 text-sm"
+                  onClick={() => {
+                    setDisplay(false);
+                  }}
+                >
+                  Edit Profile
+                </a>
               </Link>
+
               <a
                 href="#"
                 class="hover:bg-slate-200 text-gray-700 block px-4 py-2 text-sm"
@@ -159,16 +189,13 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div class="  relative inline-block text-left">
+        <div class="  relative inline-block text-left z-20">
           <div>
             <button
               type="button"
               class="text-black focus:outline-none px-2 mt-2 h-fit mx-2 bg-white rounded focus:border-black"
-              onClick={ontogglehover2}
-              onBlur={() => {
-                setDisplay2("hidden");
-              }}
-            >
+              onClick={handleOnDrop2}>
+
               More
               <svg
                 class="mr-1  ml-2 h-3 w-fit"
@@ -185,6 +212,7 @@ const Navbar = () => {
               </svg>
             </button>
           </div>
+          <div class={display2 ? show : hidden} onBlur={() => setDisplay2(false)}>
 
           <div
             class={display2}
@@ -234,6 +262,7 @@ const Navbar = () => {
                 </button>
               </form>
             </div>
+          </div>
           </div>
         </div>
       </div>
