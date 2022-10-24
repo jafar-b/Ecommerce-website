@@ -7,6 +7,7 @@ const Login = () => {
   const router = useRouter();
   const [Email, setEmail] = useState("");
   const [Pass, setPass] = useState("");
+  const [loggedin,setloggedin]=useState(false);
   const userinput = { Email, Pass };
   const handleOnFormSubmit = (e) => {
     e.preventDefault();
@@ -17,11 +18,11 @@ const Login = () => {
     }
 
     fetchbackend();
+
   };
 
   const fetchbackend = () => {
     console.log("user input frontend: ", userinput);
-
     const res = fetch("http://localhost:5000/Login", {
       method: "POST",
       body: `email=${Email}&pass=${Pass}`,
@@ -29,7 +30,9 @@ const Login = () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
     }).then((res) => {
       if (res.status === 200) {
-        alert("Login successfull");
+        alert("Login successful");
+        setloggedin(true);
+       
       } else {
         alert("User not found please signup first");
         router.replace("/Signup");
@@ -72,15 +75,17 @@ const Login = () => {
           </div>
 
           <div class="row mb-4">
+
             <div class="col d-flex justify-content-center">
+
               <div class="form-check">
+
                 <input
                   class="form-check-input"
                   type="checkbox"
                   value=""
                   id="form2Example31"
-                  checked
-                />
+                  />
                 <label class="form-check-label" for="form2Example31">
                   {" "}
                   Remember me{" "}

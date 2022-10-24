@@ -6,7 +6,7 @@ import 'react-multi-carousel/lib/styles.css';
 import Carousel from 'react-multi-carousel';
 import Product_card from "./Product_card";
 
-const BestSellers = (props) => {
+const BestSellers = (props)=>{
 
 
 
