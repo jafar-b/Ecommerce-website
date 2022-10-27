@@ -10,16 +10,16 @@ const UserSchema = new mongoose.Schema({
 
 //Generating auth token:
 
-UserSchema.methods.generateAuthToken = async function () {
-  try { 
-    let token = jwt.sign({ _id: this._id.toString() }, "MYNAMEISJAFARANDTHISISMYSECRETKEY");
-    this.tokens = this.tokens.concat({ token: token });
-    await this.save();
-    return token; 
-  } catch (err) {
-    console.log(err);
-  }
-};
+// UserSchema.methods.generateAuthToken = async function () {
+//   try { 
+//     let token = jwt.sign({ _id: this._id.toString() }, "MYNAMEISJAFARANDTHISISMYSECRETKEY");
+//     this.tokens = this.tokens.concat({ token: token });
+//     await this.save();
+//     return token; 
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
 
 const usermodel = mongoose.model("USERDETAIL", UserSchema);
 

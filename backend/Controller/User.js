@@ -1,20 +1,24 @@
 import usermodel from "../Models/UserSchema.js";
-
-export const Login = async (req, res) => {
+import jwt  from "jsonwebtoken";
+export const Login = (req, res) => {
+  
   let token;
+const JWT_SECRETKEY="LKJSDHGFJHWVLKEWJKLQJEWVJHWDNCKJHWDCJAKMNDVKJHASKVASMNVKJDHVLKASJCDLVKSLKV";
+
   const { email, pass } = req.body;
   if(!email || !pass){
     res.status(400).json({ error: "please input email and  password" });
   }
 
-  usermodel
-    .findOne({ email: email, pass: pass })
+usermodel.findOne({ email: email, pass: pass })
     .then((userExist) => {
-      console.log("generating token...");
-      token = userExist.generateAuthToken();
-      console.log(token);
-      if (userExist) {
-        res.status(200).json({ success: "logged in successfully" });
+      if (userExist) { 
+const token=jwt.sign({_id:userExist._id},"JWT_SECRETKEY");
+userExist.tokens = userExist.tokens.concat({ token:token });
+    userExist.save(); 
+        res.status(200).json({ token: token });
+                
+      
       } else {
         res.status(404).json({ error: "USER NOT FOUND PLEASE SIGNUP FIRST" });
       }

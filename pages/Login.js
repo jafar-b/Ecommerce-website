@@ -1,13 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 // import usermodel from "../backend/api/Models/UserSchema";
 
 const Login = () => {
   const router = useRouter();
   const [Email, setEmail] = useState("");
   const [Pass, setPass] = useState("");
-  const [loggedin,setloggedin]=useState(false);
+  const [loggedin, setloggedin] = useState(false);
   const userinput = { Email, Pass };
   const handleOnFormSubmit = (e) => {
     e.preventDefault();
@@ -18,29 +18,51 @@ const Login = () => {
     }
 
     fetchbackend();
-
   };
 
-  const fetchbackend = () => {
+  const fetchbackend = async () => {
     console.log("user input frontend: ", userinput);
-    const res = fetch("http://localhost:5000/Login", {
+    const res = await fetch("http://localhost:5000/Login", {
       method: "POST",
       body: `email=${Email}&pass=${Pass}`,
       Accept: "*/*",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    }).then((res) => {
-      if (res.status === 200) {
-        alert("Login successful");
-        setloggedin(true);
-       
-      } else {
-        alert("User not found please signup first");
-        router.replace("/Signup");
-      }
+      headers: { "Content-Type": "application/x-www-form-urlencoded"},
     });
-  };
 
-  
+    if (res.status === 200) {
+      // alert("Login successful");
+      setloggedin(true);
+      try {
+        console.log(JSON.stringify(await res.json()));
+        console.log(res.);
+      } catch (err) {
+        console.log("paring error hai bhai: ",err);
+      }
+    } else {
+      alert("User not found please signup first");
+      // router.replace("/Signup");
+    }
+  }; 
+
+  // const fetchbackend = () => {
+  //   console.log("user input frontend: ", userinput);
+  //   const res = fetch("http://localhost:5000/Login", {
+  //     method: "POST",
+  //     body: `email=${Email}&pass=${Pass}`,
+  //     Accept: "*/*",
+  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //   }).then((res) => {
+  //     if (res.status === 200) {
+  //       alert("Login successful");
+  //       setloggedin(true);
+  //      console.log(res.text());
+  //      console.log(res.token)
+  //     } else {
+  //       alert("User not found please signup first");
+  //       // router.replace("/Signup");
+  //     }
+  //   });
+  // };
 
   return (
     <>
@@ -75,17 +97,14 @@ const Login = () => {
           </div>
 
           <div class="row mb-4">
-
             <div class="col d-flex justify-content-center">
-
               <div class="form-check">
-
                 <input
                   class="form-check-input"
                   type="checkbox"
                   value=""
                   id="form2Example31"
-                  />
+                />
                 <label class="form-check-label" for="form2Example31">
                   {" "}
                   Remember me{" "}
