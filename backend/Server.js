@@ -1,5 +1,6 @@
 import { mongoose } from "mongoose";
 import express, { urlencoded } from "express";
+import cookieParser from "cookie-parser";
 import { useState } from "react";
 import prodmodel from "./Models/ProductSchema.js";
 // import showproducts from "./Controller/Product/Showproducts.js";
@@ -9,7 +10,7 @@ import { showproducts, updateproduct } from "./Controller/Product.js";
 import cors from "cors";
 const app = express();
 const port = 5000;
-
+app.use(cookieParser())
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

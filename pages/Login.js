@@ -1,10 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 // import usermodel from "../backend/api/Models/UserSchema";
 
 const Login = () => {
   const router = useRouter();
+  const [cookie,setCookie]=useCookies(['user']);
   const [Email, setEmail] = useState("");
   const [Pass, setPass] = useState("");
   const [loggedin, setloggedin] = useState(false);
@@ -20,50 +22,43 @@ const Login = () => {
     fetchbackend();
   };
 
-  const fetchbackend = async () => {
+  const fetchbackend = () => {
     console.log("user input frontend: ", userinput);
-    const res = await fetch("http://localhost:5000/Login", {
+    const res = fetch("http://localhost:5000/Login/", {
       method: "POST",
       body: `email=${Email}&pass=${Pass}`,
       Accept: "*/*",
-      headers: { "Content-Type": "application/x-www-form-urlencoded"},
-    });
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Access-Control-Allow-Origin": "*",
+        accept:"*/*"
+      },
+    }) 
+    .then((res) =>{ 
+   
+    return res.json()   
+       
+     } )  
+      .then((data) => {
+        // console.log(res);
+        
+        if (data.status==200) {
+          console.log(data.message);
+          setCookie("token=",data.message.token,{path:"/"})
+          cookie && console.log("cookie-set")
+// document.cookie='name=token-here; path=/Login; expires=Thu, 01 Jan 1970 00:00:01 GMT ,SameSite=true'; 
+          // alert("Login successful");
+          setloggedin(true);
+  
+        } else {
+          alert("User not found please signup first");
+          // router.replace("/Signup");
+        }
+      })
+      .catch((err) => console.log(err));
+  };
 
-    if (res.status === 200) {
-      // alert("Login successful");
-      setloggedin(true);
-      try {
-        console.log(JSON.stringify(await res.json()));
-        console.log(res);
-      } catch (err) {
-        console.log("paring error hai bhai: ",err);
-      }
-    } else {
-      alert("User not found please signup first");
-      // router.replace("/Signup");
-    }
-  }; 
-
-  // const fetchbackend = () => {
-  //   console.log("user input frontend: ", userinput);
-  //   const res = fetch("http://localhost:5000/Login", {
-  //     method: "POST",
-  //     body: `email=${Email}&pass=${Pass}`,
-  //     Accept: "*/*",
-  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  //   }).then((res) => {
-  //     if (res.status === 200) {
-  //       alert("Login successful");
-  //       setloggedin(true);
-  //      console.log(res.text());
-  //      console.log(res.token)
-  //     } else {
-  //       alert("User not found please signup first");
-  //       // router.replace("/Signup");
-  //     }
-  //   });
-  // };
-
+ 
   return (
     <>
       <div className="w-full mt-4 justify-center flex  flex-col text-center">
@@ -97,11 +92,8 @@ const Login = () => {
           </div>
 
           <div class="row mb-4">
-
             <div class="col d-flex justify-content-center">
-
               <div class="form-check">
-
                 <input
                   class="form-check-input"
                   type="checkbox"

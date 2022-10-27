@@ -5,10 +5,9 @@ const UserSchema = new mongoose.Schema({
     name:String,
     email:String,
     pass:String,
-    pass2:String
+    pass2:String,
+    tokens:[{token:String}]
 })
-
-
 
 
 const usermodel = mongoose.model('USERDETAIL', UserSchema);
