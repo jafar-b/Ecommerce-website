@@ -34,7 +34,7 @@ const Login = () => {
       setloggedin(true);
       try {
         console.log(JSON.stringify(await res.json()));
-        console.log(res.);
+        console.log(res);
       } catch (err) {
         console.log("paring error hai bhai: ",err);
       }
@@ -97,8 +97,11 @@ const Login = () => {
           </div>
 
           <div class="row mb-4">
+
             <div class="col d-flex justify-content-center">
+
               <div class="form-check">
+
                 <input
                   class="form-check-input"
                   type="checkbox"
