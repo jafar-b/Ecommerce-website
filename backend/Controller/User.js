@@ -1,11 +1,11 @@
 import usermodel from "../Models/UserSchema.js";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
+import Auth from "../Middleware/Auth.js";
 
 export const Login = (req, res) => {
   let token;
-  const JWT_SECRETKEY =
-    "LKJSDHGFJHWVLKEWJKLQJEWVJHWDNCKJHWDCJAKMNDVKJHASKVASMNVKJDHVLKASJCDLVKSLKV";
+  const JWT_SECRETKEY = "SECRET";
 
   const { email, pass } = req.body;
   if (!email || !pass) {
@@ -16,24 +16,34 @@ export const Login = (req, res) => {
     .findOne({ email: email, pass: pass })
     .then((userExist) => {
       if (userExist) {
-        const token = jwt.sign({ _id: userExist._id }, "JWT_SECRETKEY", {
+         token = jwt.sign({ _id: userExist._id }, JWT_SECRETKEY, {
           expiresIn: Math.floor(Date.now() / 1000) + 60 * 60,
         });
+        // res.cookie("token_id",token,options);
+        userExist.token = usermodel
+          .findOneAndUpdate(
+            { _id: userExist._id },
+            {
+              token: token,
+            },
+            { new: true }
+          )
+          .exec();
 
-        userExist.tokens = userExist.tokens.concat({ token: token });
-        userExist.save();
+        // userExist.save();
 
-
-     
-        res
-          .status(200)
-          .send({ status: 200, message: { token, user: userExist._id } });
+        res.status(200).json({
+          token: token,
+          user: userExist._id,
+        });
       } else {
-        res.status(404).json({ message: "USER NOT FOUND PLEASE SIGNUP FIRST" });
+        res.status(404).json({
+          message: "USER NOT FOUND PLEASE SIGNUP FIRST",
+        });
       }
     })
     .catch((err) => {
-      console.log("either Db-404 or: ", err);
+      res.status(500).json({ message: err });
     });
 };
 
@@ -76,5 +86,5 @@ export const Signup = async (req, res) => {
           });
       }
     })
-    .catch((err) => console.log("error in findone"));
+    .catch((err) => res.status(500).send({ message: "database error" }));
 };

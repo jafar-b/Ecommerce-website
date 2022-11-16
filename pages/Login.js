@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 const Login = () => {
   const router = useRouter();
-  const [cookie,setCookie]=useCookies(['user']);
+  const [cookie, setCookie] = useCookies(["user"]);
   const [Email, setEmail] = useState("");
   const [Pass, setPass] = useState("");
   const [loggedin, setloggedin] = useState(false);
@@ -24,41 +24,35 @@ const Login = () => {
 
   const fetchbackend = () => {
     console.log("user input frontend: ", userinput);
-    const res = fetch("http://localhost:5000/Login/", {
+    fetch("http://localhost:5000/Login/", {
       method: "POST",
       body: `email=${Email}&pass=${Pass}`,
       Accept: "*/*",
-      headers: {
+      headers:{
+        accept: "application/json",
         "Content-Type": "application/x-www-form-urlencoded",
         "Access-Control-Allow-Origin": "*",
-        accept:"*/*"
       },
-    }) 
-    .then((res) =>{ 
-   
-    return res.json()   
-       
-     } )  
+    })
+      .then((res) => {
+        if (res.status === 200) return res.json();
+      })
       .then((data) => {
-        // console.log(res);
-        
-        if (data.status==200) {
-          console.log(data.message);
-          setCookie("token=",data.message.token,{path:"/"})
-          cookie && console.log("cookie-set")
-// document.cookie='name=token-here; path=/Login; expires=Thu, 01 Jan 1970 00:00:01 GMT ,SameSite=true'; 
-          // alert("Login successful");
-          setloggedin(true);
-  
+        if (data) {
+          setCookie("token_id", data.token, { path: "/" });
+          setCookie("user_id", data.user, { path: "/" });
+          if (cookie) console.log("cookie-set");
+          alert("Login successful");
+          console.log(data);
         } else {
-          alert("User not found please signup first");
-          // router.replace("/Signup");
+          console.log("user not found");
+          console.log("res.status not 200..error.");
         }
+    
       })
       .catch((err) => console.log(err));
   };
 
- 
   return (
     <>
       <div className="w-full mt-4 justify-center flex  flex-col text-center">
@@ -147,3 +141,36 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
+
+
+
+
+
+
+
+
+// COMMENTED CODE:
+
+// FOR FETCH: 
+    // console.log("helllo");
+        // try {
+        //   if (res.status === 200) {
+        //     setCookie("token_id", data.token, { path: "/" });
+        //     setCookie("user_id", data.user, { path: "/" });
+        //     if (cookie) console.log("cookie-set");
+        //     alert("Login successful");
+        //     setloggedin(true);
+        //   } else {
+        //     console.log("user not found");
+        //     // alert("User not found please signup first");
+        //     // router.replace("/Signup");
+        //   }
+        // } catch (err) {
+        //   console.log("error in try" + err);
+        // }
+
+
+

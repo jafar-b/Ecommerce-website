@@ -17,7 +17,8 @@
     "react-cookie": "^4.1.1",
     "react-dom": "18.2.0",
     "react-multi-carousel": "^2.8.2",
-    "swiper": "^8.4.2"
+    "swiper": "^8.4.2",
+    "universal-cookie": "^4.0.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.12",

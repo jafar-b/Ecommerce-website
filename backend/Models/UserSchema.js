@@ -6,7 +6,9 @@ const UserSchema = new mongoose.Schema({
     email:String,
     pass:String,
     pass2:String,
-    tokens:[{token:String}]
+    // tokens:[{token:String}],
+    token:String
+    
 })
 
 
