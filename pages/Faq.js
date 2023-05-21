@@ -26,7 +26,7 @@ const Faq = () => {
     <div class="col-md-6 col-lg-4 mb-4">
       <h6 class="mb-3 text-primary"><i class="fas fa-pen-alt text-primary pe-2"></i>What if I miss my Flipkart order delivery?</h6>
       <p>
-        <strong><u>Don't Worry! </u></strong>,the delivery agent will try to deliver again on the next working day. You can also call the delivery agent to get the latest delivery update.
+        <strong><u>Dont Worry! </u></strong>,the delivery agent will try to deliver again on the next working day. You can also call the delivery agent to get the latest delivery update.
       </p>
     </div>
 

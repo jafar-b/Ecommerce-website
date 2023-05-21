@@ -11,7 +11,7 @@ const ReturnPolicy = () => {
         under a particular category may not have the same returns policy. For
         all products, the returns/replacement policy provided on the product
         page shall prevail over the general returns policy. Do refer the
-        respective item's applicable return/replacement policy on the product
+        respective item`&apos;`s applicable return/replacement policy on the product
         page for any exceptions to this returns policy and the table below The
         return policy is divided into three parts; Do read all sections
         carefully to understand the conditions and cases under which returns
@@ -42,7 +42,7 @@ const ReturnPolicy = () => {
         </tr>
         <tr>
             <td valign="middle" class="border border-black">
-                <p>Lifestyle: Watch, Winter Wear (Blazer, Sweatshirt, Scarf, Shawl, Jacket, Coat, Sweater, Thermal, Kid’s Thermal, Track Pant, Shrugs), T-Shirt, Footwear, Sari, Short, Dress, Kid’s (Capri, Shorts &amp; Tops), Men’s (Ethnic Wear, Shirt, Formals, Jeans, Clothing Accessory), Women’s (Ethnic Wear, Fabric, Blouse, Jean, Skirt, Trousers, Bra), Bags, Raincoat, Sunglass, Belt, Frame, Backpack, Suitcase, Luggage, etc...</p>
+                <p>Lifestyle: Watch, Winter Wear (Blazer, Sweatshirt, Scarf, Shawl, Jacket, Coat, Sweater, Thermal, Kid`&apos;`s Thermal, Track Pant, Shrugs), T-Shirt, Footwear, Sari, Short, Dress, Kid`&apos;`s (Capri, Shorts &amp; Tops), Men`&apos;`s (Ethnic Wear, Shirt, Formals, Jeans, Clothing Accessory), Women`&apos;`s (Ethnic Wear, Fabric, Blouse, Jean, Skirt, Trousers, Bra), Bags, Raincoat, Sunglass, Belt, Frame, Backpack, Suitcase, Luggage, etc...</p>
                 <p>Lifestyle: Jewellery, Footwear Accessories, Travel Accessories, Watch Accessories, etc..</p>
             </td>
             <td valign="middle" class="border border-black" >
@@ -167,7 +167,7 @@ const ReturnPolicy = () => {
                 <p>o OnePlus - <a href="https://www.oneplus.in/support/service-center">https://www.oneplus.in/support/service-center</a></p>
                 <p>o Lifelong Massager - <a href="https://www.lifelongindiaonline.com/pages/service-support">https://www.lifelongindiaonline.com/pages/service-support</a></p>
                 <p><br/></p>
-                <p>For any other issues with the product, you may contact Flipkart - <a href="https://www.flipkart.com/helpcentre">Flipkart’s 24×7 Customer Care</a></p>
+                <p>For any other issues with the product, you may contact Flipkart - <a href="https://www.flipkart.com/helpcentre">Flipkart`&apos;`s 24×7 Customer Care</a></p>
                 <p><br/></p>
             </td>
         </tr>
@@ -179,7 +179,7 @@ const ReturnPolicy = () => {
             <td valign="middle" class="border border-black">
                 <p>10 days</p>
                 <p>Replacement only</p>
-                <p>For products requiring installation, returns shall be eligible only when such products are installed by the brand's authorized personnel.</p>
+                <p>For products requiring installation, returns shall be eligible only when such products are installed by the brand`&apos;`s authorized personnel.</p>
                 <p>In order to help you resolve issues with your product, we may troubleshoot your product either through online tools, over the phone, and/or through an in-person technical visit.</p>
                 <p>If a defect is determined within the Returns Window, a replacement of the same model will be provided at no additional cost. If no defect is confirmed or the issue is not diagnosed within 10 days of delivery or Installation wherever applicable, you will be directed to a brand service centre to resolve any subsequent issues.</p>
                 <p>In any case, only one replacement shall be provided.</p>

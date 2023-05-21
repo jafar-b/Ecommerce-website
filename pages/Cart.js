@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 
 const Cart = () => {
@@ -48,7 +49,7 @@ const Cart = () => {
                       <h6 class="mb-0">€ 44.00</h6>
                     </div>
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                      <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                      <Link href="#!" class="text-muted"><i class="fas fa-times"></i></Link>
                     </div>
                   </div>
 
@@ -82,7 +83,7 @@ const Cart = () => {
                       <h6 class="mb-0">€ 44.00</h6>
                     </div>
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                      <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                      <Link href="#!" class="text-muted"><i class="fas fa-times"></i></Link>
                     </div>
                   </div>
 
@@ -116,15 +117,15 @@ const Cart = () => {
                       <h6 class="mb-0">€ 44.00</h6>
                     </div>
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                      <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                      <Link href="#!" class="text-muted"><i class="fas fa-times"></i></Link>
                     </div>
                   </div>
 
                   <hr class="my-4"/>
 
                   <div class="pt-5">
-                    <h6 class="mb-0"><a href="/" class="text-body"><i
-                          class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
+                    <h6 class="mb-0"><Link href="/" class="text-body"><i
+                          class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</Link></h6>
                   </div>
                 </div>
               </div>

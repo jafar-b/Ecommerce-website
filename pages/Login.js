@@ -1,7 +1,10 @@
 import React from "react";
+
+
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
+import Link from 'next/link';
 // import usermodel from "../backend/api/Models/UserSchema";
 
 const Login = () => {
@@ -102,7 +105,7 @@ const Login = () => {
             </div>
 
             <div class="col">
-              <a href="#!">Forgot password?</a>
+              <Link href="#!">Forgot password?</Link>
             </div>
           </div>
 
@@ -116,7 +119,7 @@ const Login = () => {
 
           <div class="text-center">
             <p>
-              Not a member? <a href="/Signup">Register</a>
+              Not a member? <Link href="/Signup">Register</Link>
             </p>
             <button type="button" class="btn btn-link btn-floating mx-1">
               <i class="fab fa-facebook-f"></i>
